@@ -1,0 +1,44 @@
+---
+// Data Logo dibagi per kategori
+const partners = {
+  corporate: [
+    { name: "Alfamart", src: "https://upload.wikimedia.org/wikipedia/commons/8/86/Alfamart_logo.svg" },
+    { name: "MetroTV", src: "https://upload.wikimedia.org/wikipedia/ms/4/41/New_MetroTV_Logo_and_Slogan_2010.png" },
+    { name: "Realfood", src: "https://images.glints.com/unsafe/1200x0/glints-dashboard.oss-ap-southeast-1-internal.aliyuncs.com/company-logo/e44d686b81fec8ff34368a100db265eb.png" },
+    { name: "YSDF", src: "https://ydsfpeduli.org/wp-content/uploads/2020/10/ydsf2.jpg" },
+    { name: "BIJB", src: "https://bijb.co.id/sites/default/files/extra_logos/logo-bijb-new.png" },
+    { name: "Koperasi Karyawan Pertamina Kantor Pusat", src: "https://chandra16996.wordpress.com/wp-content/uploads/2015/10/logo.jpg" },
+    { name: "Permata Bank", src: "https://upload.wikimedia.org/wikipedia/en/thumb/4/48/PermataBank_logo.svg/2560px-PermataBank_logo.svg.png" },
+    { name: "BUMN", src: "https://bumn.go.id/storage/kontenutama/images/Image_1669606404.png" },
+    { name: "SMA LabSchool Jakarta", src: "https://upload.wikimedia.org/wikipedia/id/thumb/9/93/Logo_Labschool.png/1198px-Logo_Labschool.png" },
+    { name: "South Sumatra Province", src: "https://kompaspedia.kompas.id/wp-content/uploads/2020/08/LOGO_1600_SUMATERA-SELATAN_thumb.png" },
+    { name: "Lambang Kota Palu", src: "https://upload.wikimedia.org/wikipedia/commons/5/54/Lambang_Kota_Palu.png" },
+    { name: "BPK", src: "https://upload.wikimedia.org/wikipedia/commons/d/d2/BPK_insignia.svg" },
+    { name: "Angkasa Pura II", src: "https://upload.wikimedia.org/wikipedia/zh/thumb/a/a6/Angkasa_Pura_II_logo_2014.svg/1200px-Angkasa_Pura_II_logo_2014.svg.png" },
+    { name: "Amitra", src: "https://fgc.fifgroup.co.id/wp-content/uploads/2020/03/amitra-logo.png" },
+    { name: "BFI", src: "https://cdn.prod.website-files.com/6659279147e0fbf421f56df1/6672cf40de38a619dde73637_BFI%20Logo%20panjang.png" }
+  ]
+};
+---
+
+<section class="py-16 bg-white border-t border-gray-100">
+  <div class="container mx-auto px-4">
+    
+    <div class="text-center mb-10">
+      <h3 class="text-gray-500 font-medium uppercase tracking-widest text-sm mb-2">
+        Partner Resmi Kami
+      </h3>
+      <div class="w-16 h-1 bg-samira-gold mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-80">
+      
+      {/* Mapping Corporate */}
+      {partners.corporate.map((c) => (
+        <div class="w-full h-16 flex items-center justify-center p-2 group">
+            <img src={c.src} alt={c.name} class="max-h-10 w-auto grayscale group-hover:grayscale-0 transition duration-300" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

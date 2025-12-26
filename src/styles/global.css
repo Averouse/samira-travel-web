@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  /* Setting Font */
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  /* Setting Warna Custom */
+  --color-samira-gold: #D4AF37;
+  --color-samira-dark: #0f172a;
+  --color-samira-green: #064E3B;
+}

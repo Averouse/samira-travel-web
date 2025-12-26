@@ -1,0 +1,121 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+/** * Data Hotel hasil pemindaian gambar:
+ * Hotel 1: Plaza In Ohud Madinah
+ * Hotel 2: Durrat Al Salah Makkah
+ * Hotel 3: Arkan Al Manar Madinah
+ * Hotel 4: Grand Al Massa Makkah
+ * Hotel 5: Grand Plaza Madinah
+ * Hotel 6: Anjum Makkah
+ * Hotel 7: Taiba Front Madinah
+ * Hotel 8: Movenpick Makkah
+ */
+
+const hotelPosters = [
+    { id: 1, src: "/public/Hotel1.jpg", name: "Plaza In Ohud Madinah", star: 3 },
+    { id: 2, src: "/public/Hotel2.jpg", name: "Durrat Al Salah Makkah", star: 3 },
+    { id: 3, src: "/public/Hotel3.jpg", name: "Arkan Al Manar Madinah", star: 4 },
+    { id: 4, src: "/public/Hotel4.jpg", name: "Grand Al Massa Makkah", star: 4 },
+    { id: 5, src: "/public/Hotel5.jpg", name: "Grand Plaza Madinah", star: 4 },
+    { id: 6, src: "/public/Hotel6.jpg", name: "Anjum Makkah", star: 5 },
+    { id: 7, src: "/public/Hotel7.jpg", name: "Taiba Front Madinah", star: 5 },
+    { id: 8, src: "/public/Hotel8.jpg", name: "Movenpick Makkah", star: 5 },
+];
+---
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akomodasi Hotel - Samira Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-sans">
+    <Navbar />
+    
+    <!-- Bagian Header -->
+    <div class="bg-samira-dark text-white pt-32 pb-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-white">Hotel & Akomodasi</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto italic">Pilihan hotel terbaik di Tanah Suci untuk kenyamanan ibadah Anda sekeluarga.</p>
+        </div>
+    </div>
+
+    <!-- Galeri Hotel (Layout Horizontal) -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {hotelPosters.map((hotel) => (
+                <div class="group relative bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
+                    <!-- Container Gambar (Orientasi Landscape/Melebar) -->
+                    <div class="aspect-video overflow-hidden cursor-pointer btn-open-modal" 
+                         data-src={hotel.src} 
+                         data-name={hotel.name}>
+                        <img 
+                            src={hotel.src} 
+                            alt={hotel.name} 
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700"
+                        />
+                        <!-- Overlay Dekoratif -->
+                        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                    </div>
+                    
+                    <!-- Label Nama Hotel -->
+                    <div class="absolute bottom-0 left-0 w-full p-6 pointer-events-none">
+                        <div class="flex items-center gap-1 mb-1">
+                            {[...Array(hotel.star)].map(() => (
+                                <svg class="w-4 h-4 text-samira-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            ))}
+                        </div>
+                        <h3 class="text-white font-serif text-xl md:text-2xl font-bold group-hover:text-samira-gold transition-colors">{hotel.name}</h3>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- SISTEM MODAL (Lightbox) -->
+    <div id="hotel-modal" class="fixed inset-0 z-100 hidden overflow-y-auto bg-black/95 backdrop-blur-sm p-4 items-center justify-center">
+        <button id="close-modal" class="fixed top-6 right-6 z-110 bg-white rounded-full p-2 text-black hover:bg-samira-gold transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="max-w-5xl w-full text-center">
+            <img id="modal-img" src="" alt="Zoom Hotel" class="mx-auto w-full h-auto rounded-lg shadow-2xl max-h-80 object-contain" />
+            <h3 id="modal-caption" class="text-white font-serif text-2xl mt-6"></h3>
+        </div>
+    </div>
+
+    <Footer />
+
+    <script is:inline>
+        const modal = document.getElementById('hotel-modal');
+        const closeBtn = document.getElementById('close-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalCaption = document.getElementById('modal-caption');
+        const openElems = document.querySelectorAll('.btn-open-modal');
+
+        openElems.forEach(elem => {
+            elem.addEventListener('click', () => {
+                modalImg.src = elem.getAttribute('data-src');
+                modalCaption.textContent = elem.getAttribute('data-name');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    </script>
+</body>
+</html>

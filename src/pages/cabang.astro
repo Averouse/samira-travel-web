@@ -1,0 +1,163 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+// Data Kantor Cabang Samira Travel
+const branches = [
+    { id: 1, name: "SAMIRA CAB. KEPRI", address: "Komplek Pertokoan King Business Centre (KBC) Blok. C2 No.9 Batam" },
+    { id: 2, name: "SAMIRA CAB. RIAU", address: "Jl. Datuk Setia Maharaja (Parit Indah) No. 64A, Tangkerang Labuai, Bukit Raya, Pekanbaru" },
+    { id: 3, name: "SAMIRA CAB. JAMBI", address: "Jl. Jend. Sudirman No.38 Rt/Rw. 034 Kel. Tambak Sari. Jambi Selatan, Jambi" },
+    { id: 4, name: "SAMIRA CAB. PALEMBANG", address: "Jl. Kolonel H. Burlian No. 1593 Rt.27 Rw.07 Km. 6,5 Palembang" },
+    { id: 5, name: "SAMIRA CAB. LAMPUNG", address: "Jln. PTPN VII simpang Batupuru Gang Tugu Semar Dusun Sidoharjo 2, Negara Ratu Natar Lampung Selatan" },
+    { id: 6, name: "SAMIRA CAB. LUBUKLINGGAU", address: "Jl. Garuda No.516 Rt.06 Kel. Tanjung Indah Kota Lubuklinggau" },
+    { id: 7, name: "SAMIRA CAB. CIREBON", address: "Jl. Jaka Yuda, Tuk, Kedawung, Cirebon, Jawa Barat 45153" },
+    { id: 8, name: "SAMIRA CAB. SOLO RAYA", address: "Daratan RT 01 RW 05 Kelurahan Ngemplak, Kec. Kartasura, Kab. Sukoharjo, Prov. Jawa Tengah" },
+    { id: 9, name: "SAMIRA CAB. SRAGEN", address: "Jl. Urip Sumoharjo No.10 Sragen Tengah, Sragen – Solo" },
+    { id: 10, name: "SAMIRA CAB. SIDOARJO", address: "Perum Kemiri Indah Jl Dahlia, B 5 no 7, Sidoarjo" },
+    { id: 11, name: "SAMIRA CAB. JEMBER", address: "Jl. Dharmawangsa No. 21A Kab. Jember – Jawa Timur" },
+    { id: 12, name: "SAMIRA CAB. BALI", address: "RM. An nur, desa Banyubiru, Kec. Negara, Kab. Jembrana Bali" },
+    { id: 13, name: "SAMIRA CAB. LOMBOK", address: "Griya Bhayangkara Asri Blok G No. 6 Skip Gatep Ampenan Selatan Mataram NTB 83114" },
+    { id: 14, name: "SAMIRA CAB. ACEH", address: "Jl. Banda Aceh – Medan, Desa Tanjung Minjei Kec. Madat Kabupaten Aceh Timur, Aceh" },
+    { id: 15, name: "SAMIRA CAB. BALIKPAPAN", address: "Jl. Marsma Iswahyudi No 56, Depan Pantai Auri (LANUD-Sepinggan), Sepinggan, Balikpapan Selatan" },
+    { id: 16, name: "SAMIRA CAB. KETAPANG", address: "Jl. Brigjend Katamso Komplek Gerbang Permata Blok H No.01 Kel. Sukaharja Kec. Delta Pawan Kab. Ketapang, Kalimantan Barat." },
+    { id: 17, name: "SAMIRA CAB. BANJAR BARU", address: "Jl A. Yani Km 33,5 Komp Citra Megah Raya, BANJAR BARU, Kalimantan Selatan" },
+    { id: 18, name: "SAMIRA CAB. MAKASSAR", address: "Jl. Sungai Saddang Baru No. 21, Balla Parang, Makassar" },
+    { id: 19, name: "SAMIRA CAB. SEMARANG", address: "Jl. Kauman No. 58E Kel. Bangun Harjo, Semarang" },
+    { id: 20, name: "SAMIRA CAB. PADANG", address: "Jl. Adinegoro No.23C Kel. Batang Kabung Ganting, Koto Tangah, Padang" },
+    { id: 21, name: "SAMIRA CAB. KALTENG", address: "Jl. Samudin Aman I No.5, Menteng, Kec. Jekan Raya, Kota Palangka Raya, Kalimantan Tengah 73117" }
+];
+---
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantor Cabang Seluruh Indonesia - Samira Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-sans">
+    <Navbar />
+    
+    <!-- Bagian Header -->
+    <div class="bg-samira-dark text-white pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
+            <svg class="w-[800px] h-[800px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4">Kantor Cabang Kami</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">Hadir di berbagai wilayah untuk melayani keberangkatan ibadah Umroh dan Haji Anda dengan lebih dekat dan mudah.</p>
+        </div>
+    </div>
+
+    <!-- Konten Utama -->
+    <section class="container mx-auto px-4 py-16">
+
+        <!-- Grid Kantor Cabang -->
+        <div id="branchGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {branches.map((branch) => (
+                <div class="branch-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-samira-gold group-hover:bg-samira-gold group-hover:text-white transition-colors duration-300 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-samira-dark text-lg mb-2 branch-name">{branch.name}</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed branch-address">{branch.address}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-4 border-t border-gray-100 flex gap-3 justify-between text-xs font-bold uppercase tracking-wider">
+                        <button 
+                            class="text-samira-gold hover:text-samira-dark transition-colors flex items-center gap-1 copy-btn"
+                            data-address={branch.address}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                            </svg>
+                            Salin
+                        </button>
+                        <a 
+                            href={`https://www.google.com/maps/search/${encodeURIComponent(branch.name + ' ' + branch.address)}`} 
+                            target="_blank" 
+                            class="text-gray-400 hover:text-samira-gold transition-colors flex items-center gap-1"
+                        >
+                            Maps
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <!-- No Result Message -->
+        <div id="noResult" class="hidden text-center py-20">
+            <p class="text-gray-400 text-lg">Maaf, kantor cabang di wilayah tersebut tidak ditemukan.</p>
+            <button onclick="document.getElementById('searchBranch').value = ''; filterBranches('');" class="mt-4 text-samira-gold font-bold underline">Lihat semua cabang</button>
+        </div>
+    </section>
+
+    <Footer />
+
+    <!-- Script untuk Pencarian & Salin Alamat -->
+    <script is:inline>
+        const searchInput = document.getElementById('searchBranch');
+        const cards = document.querySelectorAll('.branch-card');
+        const noResult = document.getElementById('noResult');
+        const branchGrid = document.getElementById('branchGrid');
+
+        // Fungsi Filter
+        function filterBranches(query) {
+            let hasResult = false;
+            const q = query.toLowerCase();
+
+            cards.forEach(card => {
+                const name = card.querySelector('.branch-name').textContent.toLowerCase();
+                const address = card.querySelector('.branch-address').textContent.toLowerCase();
+
+                if (name.includes(q) || address.includes(q)) {
+                    card.style.display = 'block';
+                    hasResult = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (hasResult) {
+                noResult.classList.add('hidden');
+                branchGrid.classList.remove('hidden');
+            } else {
+                noResult.classList.remove('hidden');
+                branchGrid.classList.add('hidden');
+            }
+        }
+
+        searchInput.addEventListener('input', (e) => filterBranches(e.target.value));
+
+        // Fungsi Salin Alamat
+        const copyBtns = document.querySelectorAll('.copy-btn');
+        copyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const address = btn.getAttribute('data-address');
+                const tempInput = document.createElement('input');
+                tempInput.value = address;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅ Berhasil Disalin';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

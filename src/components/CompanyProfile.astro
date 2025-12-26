@@ -1,0 +1,106 @@
+---
+// Data Rekor MURI (Diambil dari gambar sertifikat)
+const awards = [
+  {
+    title: "Jamaah Terbanyak",
+    desc: "Memecahkan rekor pemberangkatan jamaah terbanyak di masa pandemi.",
+    icon: "🏆"
+  },
+  {
+    title: "Rekor Talbiyah",
+    desc: "Peserta terbanyak dalam melafalkan kalimat Talbiyah secara bersamaan.",
+    icon: "📣"
+  },
+  {
+    title: "Terbanyak 2024",
+    desc: "Travel dengan jumlah pemberangkatan jamaah terbanyak sepanjang tahun 2024.",
+    icon: "✈️"
+  }
+];
+---
+
+<section class="py-20 bg-slate-50 overflow-hidden">
+  <div class="container mx-auto px-4">
+    
+    <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+      
+      <div class="w-full lg:w-1/2 relative">
+        <div class="absolute inset-0 bg-samira-gold/10 translate-x-4 translate-y-4 rounded-3xl -z-10"></div>
+        <img 
+          src="public/UFWM.png" 
+          alt="Ust. Fauzi Wahyu Muntoro" 
+          class="w-full rounded-3xl shadow-xl object-cover h-[400px]"
+        />
+        <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg border-l-4 border-samira-gold">
+          <h3 class="text-xl font-bold text-samira-dark">Ust. Fauzi Wahyu Muntoro</h3>
+          <p class="text-gray-600 text-sm">Direktur Utama & Pendiri</p>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2">
+        <h4 class="text-samira-gold font-bold tracking-widest uppercase mb-2">Tentang Kami</h4>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-samira-dark mb-6">
+          Melayani Sejak 2014 dengan <span class="italic text-samira-gold">Sepenuh Hati</span>
+        </h2>
+        
+        <div class="space-y-4 text-gray-600 leading-relaxed">
+          <p>
+            Samira Travel didirikan oleh Ust. Fauzi Wahyu Muntoro pada tahun 2014. Kami hadir dengan komitmen kuat untuk melayani tamu Allah sesuai tuntunan Sunnah Rasulullah SAW.
+          </p>
+          <p>
+            Alhamdulillah, legalitas kami telah resmi tercatat sejak 2016 (PPIU D834/2016) dan telah diperbarui pada tahun 2024 dengan izin Kemenag RI Nomor: <strong class="text-samira-dark">PPIU 16092100475620005</strong>.
+          </p>
+          <p>
+            Kami bukan sekadar travel, tapi mitra ibadah keluarga Anda yang mengutamakan kenyamanan, keamanan, dan kepastian keberangkatan.
+          </p>
+        </div>
+
+        <div class="mt-8">
+            <a href="https://simpu.kemenag.go.id/" target="_blank" class="text-samira-green font-bold hover:underline flex items-center gap-2">
+                Cek Validitas PPIU di Kemenag RI
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
+      <div class="text-center mb-10">
+        <h3 class="font-serif text-2xl md:text-3xl font-bold text-samira-dark">
+            Anugerah & Prestasi
+        </h3>
+        <p class="text-gray-500 mt-2">Bukti nyata kepercayaan jamaah kepada Samira Travel</p>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-100">
+          <div class="relative pb-[56.25%] h-0">
+              <iframe 
+                  class="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/VHGMsG_27dQ" 
+                  title="Profil Samira Travel"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+              </iframe>
+          </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        {awards.map((award) => (
+            <div class="text-center p-6 rounded-2xl bg-slate-50 hover:bg-emerald-50 transition-colors duration-300 group">
+                <div class="text-4xl mb-4 transform group-hover:scale-110 transition-transform">{award.icon}</div>
+                <h4 class="text-lg font-bold text-samira-dark mb-2">{award.title}</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">{award.desc}</p>
+            </div>
+        ))}
+      </div>
+
+      <div class="mt-8 text-center">
+        <span class="inline-block px-4 py-2 rounded-full bg-samira-gold/10 text-samira-dark text-sm font-semibold border border-samira-gold/30">
+            Terverifikasi oleh Museum Rekor Dunia Indonesia (MURI)
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>

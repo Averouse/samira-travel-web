@@ -1,16 +1,46 @@
 ---
-
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro'; // <--- Import Navbar
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Footer from '../components/Footer.astro'; // <--- Import Footer
+import AboutAgent from '../components/AboutAgent.astro';
+import Clients from '../components/Clients.astro';
+import CompanyProfile from '../components/CompanyProfile.astro';
+import Vision from '../components/Vision.astro';
+import LegalVideo from '../components/LegalVideo.astro';
+import Gallery from '../components/Gallery.astro';
+import Facilities from '../components/Facilities.astro';
 ---
 
-<html lang="en">
-	<head>
+<html lang="id" class="scroll-smooth"> <head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/logo-samira.png" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Samira Travel - Pangkalan Banteng</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+	<body class="font-sans antialiased text-gray-800">
+		
+        <Navbar /> <Hero />
+        
+		<CompanyProfile />
+
+		<Vision />
+
+		<LegalVideo />
+
+   		<Gallery />
+
+        <div id="tentang">
+            <Features />
+        </div>
+
+		<AboutAgent />  <section class="py-20 bg-white" id="paket"></section>
+
+		<Clients /> <section class="py-20 bg-white" id="paket"></section>
+
+		<Facilities />
+
+        <Footer /> </body>
 </html>

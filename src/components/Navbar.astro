@@ -1,0 +1,59 @@
+---
+// Script JS kecil untuk Mobile Menu (Hamburger)
+---
+
+<nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    
+    <a href="/" class="flex items-center gap-2 group">
+      <img src="/logo-samira.png" alt="Samira Travel Logo" class="h-8 w-8">
+      <span class="font-serif text-xl font-bold text-samira-dark tracking-wide">
+        Samira<span class="text-samira-gold">Travel</span>
+      </span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/" class="text-sm font-medium text-gray-600 hover:text-samira-gold transition-colors">Beranda</a>
+      <a href="/paket-umroh" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Umroh Reguler</a>
+      <a href="/paket-turki" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Umroh Plus Turkey</a>
+      <a href="/paket-haji" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Haji Furoda</a>
+      <a href="/hotel" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Hotel</a>
+    </div>
+
+    <div class="hidden md:block">
+      <a href="https://wa.me/6282255680818?text=Assalamualaikum,%20saya%20tertarik%20info%20umroh" target="_blank" class="px-5 py-2 bg-samira-dark text-white rounded-full text-sm font-bold hover:bg-samira-gold transition-colors shadow-lg shadow-emerald-900/20">
+        Hubungi Agen
+      </a>
+    </div>
+
+    <button id="menu-btn" class="md:hidden text-samira-dark focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+    <div class="flex flex-col p-4 gap-4">
+      <a href="/" class="text-gray-700 hover:text-samira-gold font-medium">Beranda</a>
+      <a href="/paket-umroh" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Umroh Reguler</a>
+      <a href="/paket-turki" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Umroh Plus</a>
+      <a href="/paket-haji" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Haji Furoda</a>
+      <a href="/hotel" class="text-sm font-medium text-gray-600 hover:text-samira-gold">Hotel</a>
+      <a href="https://wa.me/6282255680818" class="text-center py-2 bg-samira-gold text-white rounded-lg font-bold">
+        Chat WhatsApp
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

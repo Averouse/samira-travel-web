@@ -1,0 +1,181 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+// Masukkan List Gambar Brosur Paket disini.
+// Karena satu paket memiliki dua poster panjang, kita pasangkan dalam satu objek.
+const flyerPairs = [
+  {
+    id: 1,
+    name: "Paket Umroh Syawal",
+    front: "public/PaketUmroh1.png", // Ganti dengan path gambar asli di folder public
+    back: "public/PaketUmroh1a.png"
+  },
+  {
+    id: 2,
+    name: "Paket Umroh Milad",
+    front: "public/PaketUmroh2.png",
+    back: "public/PaketUmroh2a.png"
+  },
+  {
+    id: 3,
+    name: "Paket Umroh Ramadhan",
+    front: "public/PaketUmroh3.png",
+    back: "public/PaketUmroh3a.png"
+  }
+  ,
+  {
+    id: 4,
+    name: "Paket Umroh Haji Plus",
+    front: "public/PaketUmroh4.png",
+    back: "public/PaketUmroh4a.png"
+  },
+  {
+    id: 5,
+    name: "Paket Umroh Promo",
+    front: "public/PaketUmroh5.png",
+    back: "public/PaketUmroh5a.png"
+  }
+];
+---
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Umroh Reguler - Samira Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-sans">
+    <Navbar />
+    
+    <!-- Header -->
+    <div class="bg-samira-dark text-white pt-32 pb-12 text-center">
+        <h1 class="font-serif text-4xl font-bold mb-2">Paket Umroh Reguler</h1>
+        <p class="text-gray-400 px-4">Klik brosur untuk melihat detail keberangkatan dan fasilitas lengkap</p>
+    </div>
+
+    <!-- Grid Brosur Utama -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {flyerPairs.map((pair) => (
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-gray-100 group transition-all hover:shadow-xl">
+                    <!-- Preview Image (Halaman Depan) -->
+                    <div class="relative overflow-hidden rounded-xl mb-4 bg-gray-200 aspect-3/4 cursor-pointer btn-open-modal"
+                         data-name={pair.name}
+                         data-front={pair.front}
+                         data-back={pair.back}>
+                        <img 
+                            src={pair.front} 
+                            alt={pair.name} 
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+                        />
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                            <span class="bg-white/90 text-samira-dark px-4 py-2 rounded-full text-sm font-bold">Zoom & Detail</span>
+                        </div>
+                    </div>
+                    
+                    <div class="px-2 pb-2">
+                        <h3 class="font-bold text-lg text-samira-dark mb-4">{pair.name}</h3>
+                        <div class="flex flex-col gap-2">
+                            <button 
+                                class="btn-open-modal w-full text-center bg-samira-dark text-white py-3 rounded-lg font-bold hover:bg-samira-gold transition"
+                                data-name={pair.name}
+                                data-front={pair.front}
+                                data-back={pair.back}
+                            >
+                                Lihat Brosur Lengkap
+                            </button>
+                            <a href="https://wa.me/6282255680818" class="block w-full text-center border-2 border-samira-green text-samira-green py-3 rounded-lg font-bold hover:bg-samira-green hover:text-white transition">
+                                Tanya via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- SISTEM MODAL (Lightbox) -->
+    <div id="flyer-modal" class="fixed inset-0 z-100 hidden overflow-y-auto bg-black/95 backdrop-blur-sm p-4 md:p-8">
+        <!-- Tombol Tutup -->
+        <button id="close-modal" class="fixed top-6 right-6 z-110 bg-white rounded-full p-2 text-black hover:bg-samira-gold transition-colors shadow-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <!-- Konten Modal -->
+        <div class="flex flex-col items-center max-w-4xl mx-auto pt-10 pb-20">
+            <h2 id="modal-title" class="text-white font-serif text-2xl md:text-3xl mb-8">Detail Paket</h2>
+            
+            <!-- Dua Gambar Memanjang Kebawah -->
+            <div class="flex flex-col gap-8 w-full">
+                <!-- Gambar Halaman 1 -->
+                <div class="bg-white p-1 rounded-lg shadow-2xl">
+                    <img id="modal-img-front" src="" alt="Poster Halaman 1" class="w-full h-auto rounded" />
+                </div>
+                <!-- Gambar Halaman 2 -->
+                <div class="bg-white p-1 rounded-lg shadow-2xl">
+                    <img id="modal-img-back" src="" alt="Poster Halaman 2" class="w-full h-auto rounded" />
+                </div>
+            </div>
+
+            <!-- Tombol CTA Cepat di dalam Modal -->
+            <div class="mt-12 w-full text-center">
+                <a id="modal-wa-link" href="https://wa.me/6282255680818" class="inline-block bg-samira-gold text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition active:scale-95">
+                    Daftar Paket Ini Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <Footer />
+
+    <!-- LOGIC MODAL (Vanilla JS) -->
+    <script is:inline>
+        const modal = document.getElementById('flyer-modal');
+        const closeBtn = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalImgFront = document.getElementById('modal-img-front');
+        const modalImgBack = document.getElementById('modal-img-back');
+        const openElems = document.querySelectorAll('.btn-open-modal');
+
+        // Fungsi Membuka Modal
+        openElems.forEach(elem => {
+            elem.addEventListener('click', () => {
+                const name = elem.getAttribute('data-name');
+                const front = elem.getAttribute('data-front');
+                const back = elem.getAttribute('data-back');
+                
+                modalTitle.textContent = name;
+                modalImgFront.src = front;
+                modalImgBack.src = back;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Fungsi Menutup Modal
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Tutup Modal saat Klik di luar konten
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Tutup Modal dengan Tombol ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>

@@ -17,6 +17,8 @@ Styling: Tailwind CSS
 Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans)
 
 ## 📂 Struktur Folder
+
+```
 ├── public/              # Gambar statis, favicon, dan brosur paket (.jpg/.png)
 ├── src/
 │   ├── components/      # Potongan UI (Navbar, Footer, Hero, dll)
@@ -31,3 +33,4 @@ Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans)
 │   └── styles/
 │       └── global.css   # Konfigurasi Tailwind v4 & Custom CSS
 └── astro.config.mjs     # Konfigurasi utama Astro
+```

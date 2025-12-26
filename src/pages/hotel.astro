@@ -3,32 +3,22 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-/** * Data Hotel hasil pemindaian gambar:
- * Hotel 1: Plaza In Ohud Madinah
- * Hotel 2: Durrat Al Salah Makkah
- * Hotel 3: Arkan Al Manar Madinah
- * Hotel 4: Grand Al Massa Makkah
- * Hotel 5: Grand Plaza Madinah
- * Hotel 6: Anjum Makkah
- * Hotel 7: Taiba Front Madinah
- * Hotel 8: Movenpick Makkah
- */
-
 const hotelPosters = [
-    { id: 1, src: "//Hotel1.jpg", name: "Plaza In Ohud Madinah", star: 3 },
-    { id: 2, src: "//Hotel2.jpg", name: "Durrat Al Salah Makkah", star: 3 },
-    { id: 3, src: "//Hotel3.jpg", name: "Arkan Al Manar Madinah", star: 4 },
-    { id: 4, src: "//Hotel4.jpg", name: "Grand Al Massa Makkah", star: 4 },
-    { id: 5, src: "//Hotel5.jpg", name: "Grand Plaza Madinah", star: 4 },
-    { id: 6, src: "//Hotel6.jpg", name: "Anjum Makkah", star: 5 },
-    { id: 7, src: "//Hotel7.jpg", name: "Taiba Front Madinah", star: 5 },
-    { id: 8, src: "//Hotel8.jpg", name: "Movenpick Makkah", star: 5 },
+    { id: 1, src: "/Hotel1.jpg", name: "Plaza In Ohud Madinah", star: 3 },
+    { id: 2, src: "/Hotel2.jpg", name: "Durrat Al Salah Makkah", star: 3 },
+    { id: 3, src: "/Hotel3.jpg", name: "Arkan Al Manar Madinah", star: 4 },
+    { id: 4, src: "/Hotel4.jpg", name: "Grand Al Massa Makkah", star: 4 },
+    { id: 5, src: "/Hotel5.jpg", name: "Grand Plaza Madinah", star: 4 },
+    { id: 6, src: "/Hotel6.jpg", name: "Anjum Makkah", star: 5 },
+    { id: 7, src: "/Hotel7.jpg", name: "Taiba Front Madinah", star: 5 },
+    { id: 8, src: "/Hotel8.jpg", name: "Movenpick Makkah", star: 5 },
 ];
 ---
 
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/logo-samira.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akomodasi Hotel - Samira Travel</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">

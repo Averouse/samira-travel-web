@@ -1,44 +1,33 @@
-# Astro Starter Kit: Minimal
+# 🕋 Samira Travel - Website Agen Resmi
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Website profil agen perjalanan Umroh & Haji resmi Samira Travel yang dibangun dengan fokus pada kecepatan, desain modern, dan kemudahan pengelolaan konten (brosur). Proyek ini dikembangkan menggunakan Astro v4 dan Tailwind CSS.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Fitur Utama
 
-## 🚀 Project Structure
+- **Responsive Design**: Optimal untuk tampilan Mobile (HP) dan Desktop
+- **Flyer-Based Catalog**: Sistem katalog paket berbasis brosur gambar untuk memudahkan pembaruan harga dan paket tanpa menyentuh database
+- **Modal Lightbox**: Penampil brosur halaman ganda (depan-belakang) dengan fitur zoom untuk keterbacaan teks yang lebih baik
+- **Centralized Layout**: Menggunakan sistem MainLayout.astro untuk manajemen Favicon, SEO, dan Google Fonts yang efisien
+- **Searchable Directory**: Fitur pencarian kantor cabang secara real-time
+- **Trust Elements**: Integrasi video legalitas, edukasi syariah, dan daftar mitra (Maskapai & Hotel)
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠️ Tech Stack
+Framework: Astro v4 (Static Site Generator)
+Styling: Tailwind CSS
+Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans)
 
-```text
-/
-├── public/
+## 📂 Struktur Folder
+├── public/              # Gambar statis, favicon, dan brosur paket (.jpg/.png)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
+│   ├── components/      # Potongan UI (Navbar, Footer, Hero, dll)
+│   ├── layouts/         # MainLayout.astro (Bingkai utama website)
+│   ├── pages/           # Halaman utama (.astro)
+│   │   ├── index.astro         # Beranda
+│   │   ├── paket-umroh.astro   # Galeri Paket Reguler
+│   │   ├── paket-turki.astro   # Detail Paket Umroh Turki
+│   │   ├── haji-furoda.astro   # Detail Haji Furoda
+│   │   ├── hotel.astro         # Katalog Akomodasi
+│   │   └── kantor-cabang.astro # Daftar Cabang & Filter Search
+│   └── styles/
+│       └── global.css   # Konfigurasi Tailwind v4 & Custom CSS
+└── astro.config.mjs     # Konfigurasi utama Astro

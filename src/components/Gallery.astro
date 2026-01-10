@@ -5,23 +5,61 @@
         <p class="text-gray-400">Momen khusyuk dan bahagia jamaah Samira Travel.</p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-xl">
-            <img src="/Umroh5.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"/>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-xl h-48">
-            <img src="/Umroh2.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"/>
-        </div>
-        <div class="relative group overflow-hidden rounded-xl h-48">
-            <img src="/Umroh1.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"/>
-        </div>
-        <div class="relative group overflow-hidden rounded-xl h-48">
-            <img src="/Umroh4.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"/>
-        </div>
-        <div class="relative group overflow-hidden rounded-xl h-48">
-            <img src="/Umroh3.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"/>
-        </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        {Array.from({ length: 24 }, (_, i) => {
+          const num = i + 1;
+          const isLarge = [1, 7, 13, 19].includes(num);
+          return (
+            <div 
+              class={`relative group overflow-hidden rounded-xl cursor-pointer ${
+                isLarge ? 'col-span-2 row-span-2 h-96' : 'h-44 md:h-48'
+              }`}
+              data-image={`/Umroh${num}.jpeg`}
+            >
+              <img 
+                src={`/Umroh${num}.jpeg`} 
+                alt={`Jamaah Umroh ${num}`}
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+            </div>
+          );
+        })}
     </div>
   </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="hidden fixed inset-0 bg-black/95 z-50 items-center justify-center p-4">
+    <button id="closeLightbox" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300">&times;</button>
+    <img id="lightboxImage" src="" alt="" class="max-w-full max-h-[90vh] object-contain" />
+  </div>
 </section>
+
+<script>
+  const galleryItems = document.querySelectorAll<HTMLElement>('[data-image]');
+  const lightbox = document.getElementById('lightbox')!;
+  const lightboxImage = document.getElementById('lightboxImage') as HTMLImageElement;
+  const closeLightbox = document.getElementById('closeLightbox')!;
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      lightboxImage.src = item.dataset.image!;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closeLightbox.addEventListener('click', () => {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = 'auto';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox.click();
+    }
+  });
+</script>

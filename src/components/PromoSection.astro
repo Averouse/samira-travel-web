@@ -1,0 +1,208 @@
+---
+// Data Alur Pendaftaran (SESUAI GAMBAR promo-alur-pendaftaran.jpeg)
+const steps = [
+  { 
+    title: "Daftar DP Awal 1,5 Juta", 
+    desc: "Mengunci niat ke Baitullah mendapatkan koper & perlengkapan serta rekom pengurusan surat.", 
+    icon: "💰" 
+  },
+  { 
+    title: "Booking Seat 10 Juta", 
+    desc: "Bebas pilih jadwal keberangkatan.", 
+    icon: "✈️" 
+  },
+  { 
+    title: "Pemberkasan Dokumen", 
+    desc: "Pengurusan Paspor dan suntik meningitis dibantu kami. Biaya sesuai kantor pengurusan tanpa tambahan.", 
+    icon: "📄" 
+  },
+  { 
+    title: "Pelunasan", 
+    desc: "Sisa Pelunasan dibayarkan sebulan sebelum jadwal keberangkatan.", 
+    icon: "💳" 
+  },
+  { 
+    title: "Berangkat Sesuai Jadwal", 
+    desc: "Tanpa masa tunggu, setiap bulan ada 3-4 keberangkatan dari berbagai embarkasi.", 
+    icon: "🕋" 
+  }
+];
+---
+
+<section class="py-20 bg-white overflow-hidden">
+  <div class="container mx-auto px-4">
+    
+    <div class="mb-24 relative">
+      <div class="text-center mb-16">
+        <span class="text-[#D4AF37] font-bold tracking-wider uppercase text-sm">Proses Mudah</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
+          Alur Pendaftaran <span class="text-[#D4AF37]">Umroh</span>
+        </h2>
+        <p class="text-slate-500 max-w-2xl mx-auto">
+          Ikuti 5 langkah pasti menuju Baitullah sesuai standar Samira Travel.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
+        {steps.map((step, index) => (
+          <div class="group relative flex flex-col items-center text-center">
+            
+            {index < steps.length - 1 && (
+              <div class="hidden lg:block absolute top-8 left-[60%] w-[80%] h-[2px] bg-slate-200 -z-10 overflow-hidden">
+                <div class="w-full h-full bg-[#D4AF37] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out"></div>
+              </div>
+            )}
+
+            <div class="w-16 h-16 bg-white border-2 border-slate-100 shadow-lg rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-[#D4AF37] group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 relative z-10">
+              <span class="group-hover:animate-bounce">{step.icon}</span>
+            </div>
+
+            <h3 class="font-bold text-slate-800 text-sm mb-2 group-hover:text-[#D4AF37] transition-colors uppercase">{step.title}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed px-1">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+      
+      <div class="lg:col-span-7 bg-[#064E3B] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl flex flex-col justify-center min-h-[400px]">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37] opacity-10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500 opacity-10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <div class="inline-block bg-[#D4AF37]/20 border border-[#D4AF37]/30 rounded-full px-4 py-1 text-xs font-medium text-[#D4AF37] mb-6">
+            Program Tabungan Umroh
+          </div>
+          <h3 class="font-serif text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            Cara Menabung Umroh
+            <br/>
+            <span class="text-[#D4AF37]">Di Samira Travel</span>
+          </h3>
+          
+          <div class="space-y-4 mb-8 text-emerald-50">
+             <div class="flex gap-4 items-start">
+                <div class="bg-white/10 p-2 rounded-lg font-bold text-[#D4AF37]">01</div>
+                <div>
+                   <h4 class="font-bold">Daftar & DP Cukup 1,5 Juta</h4>
+                   <p class="text-sm opacity-80">Langkah awal mengunci niat.</p>
+                </div>
+             </div>
+             <div class="flex gap-4 items-start">
+                <div class="bg-white/10 p-2 rounded-lg font-bold text-[#D4AF37]">02</div>
+                <div>
+                   <h4 class="font-bold">Dokumen & Jadwal</h4>
+                   <p class="text-sm opacity-80">Kirim KTP & KK, lalu pilih tanggal keberangkatan (atau ON Request).</p>
+                </div>
+             </div>
+             <div class="flex gap-4 items-start">
+                <div class="bg-white/10 p-2 rounded-lg font-bold text-[#D4AF37]">03</div>
+                <div>
+                   <h4 class="font-bold">Virtual Account (VA)</h4>
+                   <p class="text-sm opacity-80">Dapatkan Nomor VA atau Rekening Pribadi untuk keamanan transaksi.</p>
+                </div>
+             </div>
+             <div class="flex gap-4 items-start">
+                <div class="bg-white/10 p-2 rounded-lg font-bold text-[#D4AF37]">04</div>
+                <div>
+                   <h4 class="font-bold">Transfer Berkala & Lunas</h4>
+                   <p class="text-sm opacity-80">Transfer dana umroh berkala ke VA. LUNAS Langsung Berangkat.</p>
+                </div>
+             </div>
+          </div>
+
+          <a href="https://wa.me/6282255680818?text=Halo%20saya%20tertarik%20program%20menabung%20umroh" class="inline-flex items-center justify-center gap-2 bg-[#D4AF37] text-white px-8 py-4 rounded-full font-bold hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-900/20 group">
+            Mulai Menabung
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col">
+        <div class="mb-6">
+          <h3 class="font-serif text-2xl font-bold text-slate-900">Perlengkapan <span class="text-[#D4AF37]">Jamaah</span></h3>
+          <p class="text-slate-500 text-sm mt-2">Fasilitas lengkap koper besar, kecil, hingga seragam batik.</p>
+        </div>
+        
+        <div class="flex-grow flex flex-col justify-center">
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="group cursor-pointer" data-promo-image="/promo-perlengkapan-laki.jpeg">
+              <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-3">
+                <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10"></div>
+                <img 
+                  src="/promo-perlengkapan-laki.jpeg" 
+                  alt="Perlengkapan Umroh Laki-laki" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <p class="text-center font-bold text-xs text-slate-700 uppercase tracking-wide">Pria</p>
+            </div>
+
+            <div class="group cursor-pointer" data-promo-image="/promo-perlengkapan-perempuan.jpeg">
+              <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-3">
+                <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10"></div>
+                <img 
+                  src="/promo-perlengkapan-perempuan.jpeg" 
+                  alt="Perlengkapan Umroh Perempuan" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <p class="text-center font-bold text-xs text-slate-700 uppercase tracking-wide">Wanita</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-dashed border-slate-300">
+            <h4 class="font-bold text-slate-800 text-sm mb-2 text-center">Termasuk dalam Paket:</h4>
+            <div class="flex flex-wrap justify-center gap-2 text-xs text-slate-500">
+              <span class="bg-slate-100 px-2 py-1 rounded">🧳 Koper Besar & Kecil</span>
+              <span class="bg-slate-100 px-2 py-1 rounded">🎒 Tas Ransel (Adjust)</span>
+              <span class="bg-slate-100 px-2 py-1 rounded">👕 Kain Ihram/Hijab</span>
+              <span class="bg-slate-100 px-2 py-1 rounded">👔 Seragam Batik</span>
+              <span class="bg-slate-100 px-2 py-1 rounded">👜 Tas Sendal</span>
+              <span class="bg-slate-100 px-2 py-1 rounded">🧣 Syal Samira</span>
+              <span class="bg-slate-100 px-2 py-1 rounded">📖 Buku Panduan</span>
+              <span class="bg-slate-100 px-2 py-1 rounded">📦 Kotak Oleh-oleh</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="promoLightbox" class="hidden fixed inset-0 bg-black/95 z-50 items-center justify-center p-4">
+    <button id="closePromoLightbox" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300">&times;</button>
+    <img id="promoLightboxImage" src="" alt="" class="max-w-full max-h-[90vh] object-contain" />
+  </div>
+</section>
+
+<script>
+  const promoImages = document.querySelectorAll<HTMLElement>('[data-promo-image]');
+  const promoLightbox = document.getElementById('promoLightbox')!;
+  const promoLightboxImage = document.getElementById('promoLightboxImage') as HTMLImageElement;
+  const closePromoLightbox = document.getElementById('closePromoLightbox')!;
+
+  promoImages.forEach(item => {
+    item.addEventListener('click', () => {
+      promoLightboxImage.src = item.dataset.promoImage!;
+      promoLightbox.classList.remove('hidden');
+      promoLightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closePromoLightbox.addEventListener('click', () => {
+    promoLightbox.classList.add('hidden');
+    promoLightbox.classList.remove('flex');
+    document.body.style.overflow = 'auto';
+  });
+
+  promoLightbox.addEventListener('click', (e) => {
+    if (e.target === promoLightbox) {
+      closePromoLightbox.click();
+    }
+  });
+</script>

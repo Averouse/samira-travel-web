@@ -1,3 +1,47 @@
+---
+// Facilities.astro
+// Data fasilitas sudah dan belum termasuk
+
+// Props untuk gambar (opsional, bisa disesuaikan)
+interface Props {
+  perlengkapanImage?: string;
+  maskapaiImage?: string;
+}
+
+const { 
+  perlengkapanImage = "/Perlengkapan.jpg",
+  maskapaiImage = "/Maskapai.jpg"
+} = Astro.props;
+
+// Daftar fasilitas SUDAH termasuk (14 item)
+const fasilitasSudahTermasuk = [
+  { icon: "✈️", text: "Tiket Pesawat Internasional (PP)" },
+  { icon: "🍽️", text: "Welcome Food Keberangkatan dan Kepulangan, Snack setiap ziarah" },
+  { icon: "🏨", text: "Akomodasi/Hotel sesuai Program" },
+  { icon: "🕌", text: "Ziarah City Tour Madinah, Mekkah, Jeddah" },
+  { icon: "🚌", text: "Transportasi Bus Eksekutif + Toilet untuk Ziarah, Tours dan Transfer di Saudi" },
+  { icon: "🧳", text: "Free Bagasi" },
+  { icon: "👨‍🏫", text: "Mutawwif atau Pembimbing Ibadah berbahasa Indonesia" },
+  { icon: "🛡️", text: "Asuransi Perjalanan" },
+  { icon: "📖", text: "Bimbingan Manasik" },
+  { icon: "👥", text: "Tour Leader Profesional bersertifikasi BNSP dalam 1 Bus" },
+  { icon: "💰", text: "Free Biaya Mahrom" },
+  { icon: "💧", text: "Air ZamZam 5 Liter (Sesuai Kebijakan Saudi Arabia)" },
+  { icon: "🍴", text: "Makan/Minum 3 kali/hari di masing-masing Hotel (Full board Hotel) selama di Saudi" },
+  { icon: "📜", text: "Visa Umrah" }
+];
+
+// Daftar fasilitas BELUM termasuk (7 item)
+const fasilitasBelumTermasuk = [
+  { icon: "📘", text: "Biaya Pembuatan Passport" },
+  { icon: "💉", text: "Biaya Vaksin Meningitis" },
+  { icon: "🏨", text: "Akomodasi/Hotel Transit (Jika diperlukan)" },
+  { icon: "🍽️", text: "Tour, makan dan minum tambahan diluar program" },
+  { icon: "📺", text: "Telephone Bill, Payview TV, Mini Bar dan semua pemakaian fasilitas/layanan di hotel" },
+  { icon: "💳", text: "Biaya yang bersifat pribadi dan atau yang bukan merupakan fasilitas program" },
+];
+---
+
 <section class="py-20 bg-slate-50">
   <div class="container mx-auto px-4">
     
@@ -12,42 +56,58 @@
       <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 text-center">
         <h3 class="text-xl font-bold text-samira-dark mb-6">Perlengkapan Eksklusif Jamaah</h3>
         <img 
-          src="/Perlengkapan.jpg" 
+          src={perlengkapanImage}
           alt="Perlengkapan Umroh Samira Travel" 
           class="w-full h-auto rounded-xl object-contain hover:scale-[1.01] transition duration-500"
         />
       </div>
     </div>
 
-    <div class="mb-6 bg-white p-6 rounded-3xl shadow-sm border-t-4 border-emerald-500">
-        <h3 class="text-lg font-bold text-emerald-700 mb-4 flex items-center gap-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    <!-- Grid 2 kolom untuk Include & Exclude -->
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <!-- Kolom SUDAH TERMASUK -->
+      <div class="bg-white p-6 rounded-3xl shadow-sm border-t-4 border-emerald-500">
+        <h3 class="text-lg font-bold text-emerald-700 mb-6 flex items-center gap-3">
+          <svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
           Harga Sudah Termasuk (Include)
         </h3>
-        <img 
-          src="/SudahTermasuk.jpg" 
-          alt="Fasilitas Termasuk" 
-          class="w-full h-auto rounded-lg border border-gray-100"
-        />
-    </div>
+        <ul class="space-y-3">
+          {fasilitasSudahTermasuk.map(item => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-emerald-600 mt-1">{item.icon}</span>
+              <span>{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-    <div class="bg-white p-6 rounded-3xl shadow-sm border-t-4 border-red-500">
-        <h3 class="text-lg font-bold text-red-700 mb-4 flex items-center gap-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <!-- Kolom BELUM TERMASUK -->
+      <div class="bg-white p-6 rounded-3xl shadow-sm border-t-4 border-red-500">
+        <h3 class="text-lg font-bold text-red-700 mb-6 flex items-center gap-3">
+          <svg class="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
           Harga Belum Termasuk (Exclude)
         </h3>
-        <img 
-          src="/BelumTermasuk.jpg" 
-          alt="Fasilitas Tidak Termasuk" 
-          class="w-full h-auto rounded-lg border border-gray-100"
-        />
+        <ul class="space-y-3">
+          {fasilitasBelumTermasuk.map(item => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-red-600 mt-1">{item.icon}</span>
+              <span>{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
 
+    <!-- Maskapai Penerbangan -->
     <div>
       <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 text-center">
         <h3 class="text-xl font-bold text-samira-dark mb-6">Maskapai Penerbangan Jamaah</h3>
         <img 
-          src="/Maskapai.jpg" 
+          src={maskapaiImage}
           alt="Maskapai Penerbangan Samira Travel" 
           class="w-full h-auto rounded-xl object-contain hover:scale-[1.01] transition duration-500"
         />

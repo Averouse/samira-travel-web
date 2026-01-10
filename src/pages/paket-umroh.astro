@@ -9,33 +9,32 @@ const flyerPairs = [
   {
     id: 1,
     name: "Paket Umroh Syawal",
-    front: "/PaketUmroh1.png", // Ganti dengan path gambar asli di folder 
-    back: "/PaketUmroh1a.png"
+    front: "/PaketUmroh1.webp",
+    back: "/PaketUmroh1a.webp"
   },
   {
     id: 2,
     name: "Paket Umroh Milad",
-    front: "/PaketUmroh2.png",
-    back: "/PaketUmroh2a.png"
+    front: "/PaketUmroh2.webp",
+    back: "/PaketUmroh2a.webp"
   },
   {
     id: 3,
     name: "Paket Umroh Ramadhan",
-    front: "/PaketUmroh3.png",
-    back: "/PaketUmroh3a.png"
-  }
-  ,
+    front: "/PaketUmroh3.webp",
+    back: "/PaketUmroh3a.webp"
+  },
   {
     id: 4,
     name: "Paket Umroh Haji Plus",
-    front: "/PaketUmroh4.png",
-    back: "/PaketUmroh4a.png"
+    front: "/PaketUmroh4.webp",
+    back: "/PaketUmroh4a.webp"
   },
   {
     id: 5,
     name: "Paket Umroh Promo",
-    front: "/PaketUmroh5.png",
-    back: "/PaketUmroh5a.png"
+    front: "/PaketUmroh5.webp",
+    back: "/PaketUmroh5a.webp"
   }
 ];
 ---
@@ -71,6 +70,7 @@ const flyerPairs = [
                             src={pair.front} 
                             alt={pair.name} 
                             class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+                            loading="lazy"
                         />
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                             <span class="bg-white/90 text-samira-dark px-4 py-2 rounded-full text-sm font-bold">Zoom & Detail</span>

@@ -14,10 +14,10 @@
               class={`relative group overflow-hidden rounded-xl cursor-pointer ${
                 isLarge ? 'col-span-2 row-span-2 h-96' : 'h-44 md:h-48'
               }`}
-              data-image={`/Umroh${num}.jpeg`}
+              data-image={`/Umroh${num}.webp`}
             >
               <img 
-                src={`/Umroh${num}.jpeg`} 
+                src={`/Umroh${num}.webp`} 
                 alt={`Jamaah Umroh ${num}`}
                 class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
                 loading="lazy"
@@ -51,15 +51,23 @@
     });
   });
 
-  closeLightbox.addEventListener('click', () => {
+  const closeLightboxHandler = () => {
     lightbox.classList.add('hidden');
     lightbox.classList.remove('flex');
     document.body.style.overflow = 'auto';
-  });
+  };
+
+  closeLightbox.addEventListener('click', closeLightboxHandler);
 
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
-      closeLightbox.click();
+      closeLightboxHandler();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+      closeLightboxHandler();
     }
   });
 </script>

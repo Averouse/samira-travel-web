@@ -128,25 +128,27 @@ const steps = [
         
         <div class="flex-grow flex flex-col justify-center">
           <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="group cursor-pointer" data-promo-image="/promo-perlengkapan-laki.jpeg">
+            <div class="group cursor-pointer" data-promo-image="/promo-perlengkapan-laki.webp">
               <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-3">
                 <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10"></div>
                 <img 
-                  src="/promo-perlengkapan-laki.jpeg" 
+                  src="/promo-perlengkapan-laki.webp" 
                   alt="Perlengkapan Umroh Laki-laki" 
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
               <p class="text-center font-bold text-xs text-slate-700 uppercase tracking-wide">Pria</p>
             </div>
 
-            <div class="group cursor-pointer" data-promo-image="/promo-perlengkapan-perempuan.jpeg">
+            <div class="group cursor-pointer" data-promo-image="/promo-perlengkapan-perempuan.webp">
               <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-3">
                 <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10"></div>
                 <img 
-                  src="/promo-perlengkapan-perempuan.jpeg" 
+                  src="/promo-perlengkapan-perempuan.webp" 
                   alt="Perlengkapan Umroh Perempuan" 
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
               <p class="text-center font-bold text-xs text-slate-700 uppercase tracking-wide">Wanita</p>
@@ -194,15 +196,23 @@ const steps = [
     });
   });
 
-  closePromoLightbox.addEventListener('click', () => {
+  const closePromoHandler = () => {
     promoLightbox.classList.add('hidden');
     promoLightbox.classList.remove('flex');
     document.body.style.overflow = 'auto';
-  });
+  };
+
+  closePromoLightbox.addEventListener('click', closePromoHandler);
 
   promoLightbox.addEventListener('click', (e) => {
     if (e.target === promoLightbox) {
-      closePromoLightbox.click();
+      closePromoHandler();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !promoLightbox.classList.contains('hidden')) {
+      closePromoHandler();
     }
   });
 </script>

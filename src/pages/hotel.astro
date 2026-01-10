@@ -4,14 +4,14 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const hotelPosters = [
-    { id: 1, src: "/Hotel1.jpg", name: "Plaza In Ohud Madinah", star: 3 },
-    { id: 2, src: "/Hotel2.jpg", name: "Durrat Al Salah Makkah", star: 3 },
-    { id: 3, src: "/Hotel3.jpg", name: "Arkan Al Manar Madinah", star: 4 },
-    { id: 4, src: "/Hotel4.jpg", name: "Grand Al Massa Makkah", star: 4 },
-    { id: 5, src: "/Hotel5.jpg", name: "Grand Plaza Madinah", star: 4 },
-    { id: 6, src: "/Hotel6.jpg", name: "Anjum Makkah", star: 5 },
-    { id: 7, src: "/Hotel7.jpg", name: "Taiba Front Madinah", star: 5 },
-    { id: 8, src: "/Hotel8.jpg", name: "Movenpick Makkah", star: 5 },
+    { id: 1, src: "/Hotel1.webp", name: "Plaza In Ohud Madinah", star: 3 },
+    { id: 2, src: "/Hotel2.webp", name: "Durrat Al Salah Makkah", star: 3 },
+    { id: 3, src: "/Hotel3.webp", name: "Arkan Al Manar Madinah", star: 4 },
+    { id: 4, src: "/Hotel4.webp", name: "Grand Al Massa Makkah", star: 4 },
+    { id: 5, src: "/Hotel5.webp", name: "Grand Plaza Madinah", star: 4 },
+    { id: 6, src: "/Hotel6.webp", name: "Anjum Makkah", star: 5 },
+    { id: 7, src: "/Hotel7.webp", name: "Taiba Front Madinah", star: 5 },
+    { id: 8, src: "/Hotel8.webp", name: "Movenpick Makkah", star: 5 },
 ];
 ---
 
@@ -47,6 +47,7 @@ const hotelPosters = [
                             src={hotel.src} 
                             alt={hotel.name} 
                             class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700"
+                            loading="lazy"
                         />
                         <!-- Overlay Dekoratif -->
                         <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>

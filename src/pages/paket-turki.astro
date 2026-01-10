@@ -6,8 +6,8 @@ import '../styles/global.css';
 // Data Poster Paket Turki
 const turkiPoster = {
     name: "Umroh Plus Turkey 2025",
-    front: "/PaketTurki1.jpg", // Ganti dengan path asli
-    back: "/PaketTurki1a.jpg", // Kosong jika hanya ada satu pasang (depan saja)
+    front: "/PaketTurki1.webp",
+    back: "/PaketTurki1a.webp",
     price: "Mulai 38 Jt an",
     duration: "16 Hari",
     route: "Jakarta-Istanbul-Jeddah",
@@ -44,7 +44,7 @@ const turkiPoster = {
                          data-front={turkiPoster.front} 
                          data-back={turkiPoster.back}>
                         <div class="relative overflow-hidden rounded-2xl mb-4 aspect-3/4 bg-gray-100">
-                            <img src={turkiPoster.front} alt="Poster Umroh Turki" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+                            <img src={turkiPoster.front} alt="Poster Umroh Turki" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"/>
                             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                 <span class="bg-white text-samira-dark px-6 py-3 rounded-full font-bold shadow-xl">Zoom Brosur Lengkap</span>
                             </div>

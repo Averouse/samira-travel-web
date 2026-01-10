@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://samira-travel-ismy.vercel.app', // Update with your actual domain
   vite: {
     plugins: [tailwindcss()]
   }

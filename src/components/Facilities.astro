@@ -9,8 +9,8 @@ interface Props {
 }
 
 const { 
-  perlengkapanImage = "/Perlengkapan.jpg",
-  maskapaiImage = "/Maskapai.jpg"
+  perlengkapanImage = "/Perlengkapan.webp",
+  maskapaiImage = "/Maskapai.webp"
 } = Astro.props;
 
 // Daftar fasilitas SUDAH termasuk (14 item)
@@ -59,6 +59,7 @@ const fasilitasBelumTermasuk = [
           src={perlengkapanImage}
           alt="Perlengkapan Umroh Samira Travel" 
           class="w-full h-auto rounded-xl object-contain hover:scale-[1.01] transition duration-500"
+          loading="lazy"
         />
       </div>
     </div>
@@ -110,6 +111,7 @@ const fasilitasBelumTermasuk = [
           src={maskapaiImage}
           alt="Maskapai Penerbangan Samira Travel" 
           class="w-full h-auto rounded-xl object-contain hover:scale-[1.01] transition duration-500"
+          loading="lazy"
         />
       </div>
     </div>

@@ -6,8 +6,8 @@ import '../styles/global.css';
 // Data Poster Haji Furoda
 const furodaPoster = {
     name: "Haji Furoda 2025",
-    front: "/PaketFuroda1.jpg", // Ganti dengan path asli
-    back: "", // Kosong - tidak ada gambar belakang
+    front: "/PaketFuroda1.webp",
+    back: "",
     price: "USD 29.500",
     duration: "20 Hari",
     route: "Jakarta-Jeddah-Madinah-Makkah",
@@ -44,7 +44,7 @@ const furodaPoster = {
                          data-front={furodaPoster.front} 
                          data-back={furodaPoster.back}>
                         <div class="relative overflow-hidden rounded-2xl mb-4 aspect-3/4 bg-gray-100">
-                            <img src={furodaPoster.front} alt="Poster Haji Furoda" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+                            <img src={furodaPoster.front} alt="Poster Haji Furoda" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"/>
                             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                 <span class="bg-white text-samira-dark px-6 py-3 rounded-full font-bold shadow-xl">Zoom Brosur Lengkap</span>
                             </div>

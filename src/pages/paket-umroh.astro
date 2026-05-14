@@ -4,33 +4,17 @@ import MainLayout from '../layouts/MainLayout.astro';
 const flyerPairs = [
   {
     id: 1,
-    name: "Paket Umroh Syawal",
-    front: "/PaketUmroh1.webp",
-    back: "/PaketUmroh1a.webp"
+    name: "Umroh Awal Musim Jakarta (Saudia 12D)",
+    price: "36 JT-an",
+    front: "/JAKARTA SAUDIA 12D (6, 10, 16, 20, 23, 27, 28, 29 JULI 2026).webp",
+    back: ""
   },
   {
     id: 2,
-    name: "Paket Umroh Milad",
-    front: "/PaketUmroh2.webp",
-    back: "/PaketUmroh2a.webp"
-  },
-  {
-    id: 3,
-    name: "Paket Umroh Ramadhan",
-    front: "/PaketUmroh3.webp",
-    back: "/PaketUmroh3a.webp"
-  },
-  {
-    id: 4,
-    name: "Paket Umroh Haji Plus",
-    front: "/PaketUmroh4.webp",
-    back: "/PaketUmroh4a.webp"
-  },
-  {
-    id: 5,
-    name: "Paket Umroh Promo",
-    front: "/PaketUmroh5.webp",
-    back: "/PaketUmroh5a.webp"
+    name: "Umroh Awal Musim Surabaya (Lion 16D)",
+    price: "41 JT-an",
+    front: "/SURABAYA LION 16D (25 JULI 2026).webp",
+    back: ""
   }
 ];
 ---
@@ -64,7 +48,8 @@ const flyerPairs = [
                     </div>
                     
                     <div class="px-2 pb-2">
-                        <h3 class="font-bold text-lg text-samira-dark mb-4">{pair.name}</h3>
+                        <h3 class="font-bold text-lg text-samira-dark mb-1">{pair.name}</h3>
+                        <p class="text-samira-gold font-bold mb-4">Estimasi: {pair.price}</p>
                         <div class="flex flex-col gap-2">
                             <button 
                                 class="btn-open-modal w-full text-center bg-samira-dark text-white py-3 rounded-lg font-bold hover:bg-samira-gold transition"
@@ -99,7 +84,7 @@ const flyerPairs = [
                 <div class="bg-white p-1 rounded-lg shadow-2xl">
                     <img id="modal-img-front" src="" alt="Poster Halaman 1" class="w-full h-auto rounded" />
                 </div>
-                <div class="bg-white p-1 rounded-lg shadow-2xl">
+                <div id="modal-back-container" class="bg-white p-1 rounded-lg shadow-2xl hidden">
                     <img id="modal-img-back" src="" alt="Poster Halaman 2" class="w-full h-auto rounded" />
                 </div>
             </div>
@@ -118,6 +103,7 @@ const flyerPairs = [
         const modalTitle = document.getElementById('modal-title')!;
         const modalImgFront = document.getElementById('modal-img-front') as HTMLImageElement;
         const modalImgBack = document.getElementById('modal-img-back') as HTMLImageElement;
+        const modalBackContainer = document.getElementById('modal-back-container')!;
         const openElems = document.querySelectorAll<HTMLElement>('.btn-open-modal');
 
         openElems.forEach(elem => {
@@ -128,7 +114,14 @@ const flyerPairs = [
                 
                 modalTitle.textContent = name;
                 modalImgFront.src = front;
-                modalImgBack.src = back;
+                
+                if (back && back !== "") {
+                    modalImgBack.src = back;
+                    modalBackContainer.classList.remove('hidden');
+                } else {
+                    modalBackContainer.classList.add('hidden');
+                }
+                
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
             });
